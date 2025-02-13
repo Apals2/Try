@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: url('https://i.imgur.com/Z1dgoH1.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            color: #000;
+            transition: background 1s ease-in-out;
+        }
+        .container {
+            margin-top: 100px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            display: inline-block;
+            animation: fadeIn 2s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 36px;
+            color: #ff4081;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .btn {
+            font-size: 20px;
+            padding: 12px 24px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+        .yes {
+            background-color: #ff4081;
+            color: white;
+            animation: bounce 1.5s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        .yes:hover {
+            background-color: #d63384;
+        }
+        .no {
+            background-color: #ccc;
+            color: black;
+            position: absolute;
+        }
+        #message {
+            display: none;
+            font-size: 22px;
+            color: #000;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            font-family: 'Pacifico', cursive;
+            animation: fadeIn 2s ease-in, heartbeat 1.5s infinite;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .footer {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.7);
+            font-family: 'Pacifico', cursive;
+        }
+        @keyframes fireworks {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(2); }
+        }
+        .firework {
+            position: fixed;
+            width: 5px;
+            height: 5px;
+            background: radial-gradient(circle, rgba(255, 223, 0, 1) 0%, rgba(255, 0, 0, 1) 50%, rgba(0, 0, 255, 1) 100%);
+            border-radius: 50%;
+            animation: fireworks 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will You Be My Valentine, My Tanish? ❤️💖</h1>
+        <div class="buttons">
+            <button class="btn yes" onclick="celebrate()">Yes! 💕</button>
+            <button class="btn no" id="noButton">No 😢</button>
+        </div>
+        <p id="message">Hey love, I just wanted to say... you’ve made me the happiest person today. Knowing that I get to spend Valentine’s Day with you feels like a dream come true. You mean the world to me, and I can’t wait to make it a day as special as you are. Thank you for saying yes—you’ve already made my heart skip a beat. So, be ready at 8PM meri jaan.❤️</p>
+    </div>
+    <div class="footer">Made by Angad 💙</div>
+    
+    <script>
+        function celebrate() {
+            document.body.style.background = "url('https://i.imgur.com/qbwuBtX.jpeg') no-repeat center center fixed";
+            document.body.style.backgroundSize = "cover";
+            document.getElementById("message").style.display = "block";
+            document.getElementById("message").style.color = "black";
+
+            for (let i = 0; i < 20; i++) {
+                let firework = document.createElement("div");
+                firework.className = "firework";
+                firework.style.left = Math.random() * window.innerWidth + "px";
+                firework.style.top = Math.random() * window.innerHeight + "px";
+                document.body.appendChild(firework);
+
+                setTimeout(() => firework.remove(), 1500);
+            }
+        }
+        
+        document.getElementById("noButton").addEventListener("mouseover", function() {
+            var x = Math.random() * (window.innerWidth - 100);
+            var y = Math.random() * (window.innerHeight - 100);
+            this.style.left = x + "px";
+            this.style.top = y + "px";
+        });
+    </script>
+</body>
+</html>
